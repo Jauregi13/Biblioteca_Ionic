@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Listado de Libros <ion-icon class="button ion-right derecha" md="md-refresh" (click)="ionViewDidLoad()"></ion-icon></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let libro of libros">
+      <ion-avatar item-start>
+        <!--<img [src]="libro.imagen">-->
+      </ion-avatar>
+      <h2>{{ libro.titulo }}</h2>
+      <p>{{ libro.autor }}</p>
+    </ion-item>
+  </ion-list>
+
+  
+</ion-content>

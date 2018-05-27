@@ -1,0 +1,44 @@
+<!--
+  Generated template for the InsertarPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Insertar</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<!--
+		Añadimos una lista de items con ion-list para mostrar
+		el formulario del registro del libro
+	-->
+
+	<ion-list>
+
+	  <ion-item>
+	    <ion-label stacked>Nombre del titulo</ion-label>
+	    <ion-input type="text" name = "titulo" [(ngModel)] = "titulo"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label stacked>Nombre del autor</ion-label>
+	    <ion-input type="text" name = "autor" [(ngModel)] =  "autor"></ion-input>
+	  </ion-item>
+
+	</ion-list>
+
+	<!--
+
+		Aquí añadimos el botón para registrar el libro
+	-->
+	<button ion-button block (click) = "anadirLibro()">Registrar libro</button>
+
+
+</ion-content>
