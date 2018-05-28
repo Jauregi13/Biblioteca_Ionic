@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SqliteProvider } from '../../providers/sqlite/sqlite';
 import { ApiProvider } from '../../providers/api/api';
+import { DescripcionPage } from '../descripcion/descripcion';
 
 @Component({
   selector: 'page-home',
@@ -22,6 +23,10 @@ export class HomePage {
   	}, (error) => {
   		console.log(error);
   	})
+  }
+
+  descripcion(libro){
+    this.navCtrl.push(DescripcionPage, libro);
   }
 
 

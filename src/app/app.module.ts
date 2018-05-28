@@ -6,7 +6,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { InsertarPage } from '../pages/insertar/insertar';
-
+import { DescripcionPage } from '../pages/descripcion/descripcion';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SqliteProvider } from '../providers/sqlite/sqlite';
@@ -19,7 +19,8 @@ import { ApiProvider } from '../providers/api/api';
     MyApp,
     HomePage,
     TabsPage,
-    InsertarPage
+    InsertarPage,
+    DescripcionPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +33,8 @@ import { ApiProvider } from '../providers/api/api';
     MyApp,
     HomePage,
     TabsPage,
-    InsertarPage
+    InsertarPage,
+    DescripcionPage
   ],
   providers: [
     StatusBar,
