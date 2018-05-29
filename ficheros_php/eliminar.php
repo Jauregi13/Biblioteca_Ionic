@@ -13,14 +13,13 @@ $datos = file_get_contents("php://input");
 
 $json = json_decode($datos, true);
 
-//DECLARAR LAS VARIABLES 
+//DECLARAR LA VARIABLE DEL TITULO RECIBIDO
 
-$titulo = $json["titulo"];
-$autor = $json["autor"];
+$id = $json["id"];
 
-// INSERTAR EL LIBRO EN LA BASE DE DATOS
+// ELIMINAR EL LIBRO DE LA BASE DE DATOS
 
-$sql = 'INSERT INTO libros (titulo, autor) VALUES ("'.$titulo.'","'.$autor.'")';
+$sql = 'DELETE FROM libros WHERE id = '. $id;
 
 mysqli_query($conexion, $sql);
 

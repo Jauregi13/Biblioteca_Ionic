@@ -15,15 +15,21 @@
 
 <ion-content padding>
 	<ion-card>
-	  <img src="../../assets/{{libro.imagen}}"/>
+	  <img src="../../assets/{{libro.imagen}}" onerror="this.src='../../assets/imgs/libro.png'">
 	  <ion-card-content>
 	    <ion-card-title>
 	      {{libro.titulo}}
 	      </ion-card-title>
 	    <p>
-	      The most popular industrial group ever, and largely
-	      responsible for bringing the music to a mass audience.
 	    </p>
+	    <ion-row class="row" no-padding>
+	    	<ion-col class="row">
+	    		<p>{{libro.autor}}</p>
+	    	</ion-col>
+	    	<ion-col class="row">
+	    		<p>{{libro.paginas}} paginas</p>
+	    	</ion-col>
+	    </ion-row>
 	  </ion-card-content>
 </ion-card>
 

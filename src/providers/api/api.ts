@@ -26,4 +26,10 @@ export class ApiProvider {
     return this.http.post(insertar, libro);
   }
 
+  eliminarLibro(titulo){
+  	let eliminar = 'http://localhost/eliminar.php';
+
+  	return this.http.post(eliminar, titulo);
+  }
+
 }

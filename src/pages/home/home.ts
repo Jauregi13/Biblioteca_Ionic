@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { SqliteProvider } from '../../providers/sqlite/sqlite';
 import { ApiProvider } from '../../providers/api/api';
 import { DescripcionPage } from '../descripcion/descripcion';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -12,7 +13,7 @@ export class HomePage {
 
   private libros : any = [];
 
-  constructor(public navCtrl: NavController, public http : ApiProvider) {
+  constructor(public navCtrl: NavController, public http : ApiProvider, public alert : AlertController) {
 
   }
 
@@ -29,5 +30,60 @@ export class HomePage {
     this.navCtrl.push(DescripcionPage, libro);
   }
 
+  aviso(libro) {
+  	let id = JSON.stringify({id : libro.id});
+    let alert = this.alert.create({
+    title: 'Confirmación',
+    subTitle: '¿Estas seguro que quieres eliminar el libro?',
+    buttons: [
+      {
+        text: 'Cancelar',
+        role: 'cancel',
+        handler: () => {
+          this.ionViewDidLoad();
+        }
+      },
+      {
+        text: 'Aceptar',
+        handler: () => {
+          this.http.eliminarLibro(id).subscribe((data) => {
+
+          	this.confirmacion(libro);
+
+
+          }, (error) => {
+          	console.log(error);
+          })
+          
+        }
+      }
+    ]
+  });
+  alert.present();
+  }
+
+  eliminar(libro){
+
+  	this.aviso(libro);
+
+  }
+
+  confirmacion(libro) {
+    let prompt = this.alert.create({
+      title: 'Libro eliminado correctamente',
+      subTitle: "El libro " + libro.titulo + " se ha eliminado correctamente",
+      buttons: [{
+
+      	text : 'Aceptar',
+      	handler: () => {
+      		this.ionViewDidLoad();
+      	}
+
+      }
+      ]
+
+    });
+    prompt.present();
+  }
 
 }

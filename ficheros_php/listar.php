@@ -2,7 +2,7 @@
 
 // CONEXION CON LA BASE DE DATOS
 header('Access-Control-Allow-Origin: *'); 
-$conexion = mysqli_connect('localhost', 'root', '', 'Biblioteca');
+$conexion = mysqli_connect('localhost', 'root', '', 'bibliotecaIonic');
 
 
 // EJECUCION A LA BASE DE DATOS
@@ -18,9 +18,10 @@ if($conexion){
 		$id=$linea['id'];
 		$titulo=$linea['titulo'];
 		$autor=$linea['autor'];
+		$paginas=$linea['paginas'];
 		$imagen=$linea['imagen'];
 
-		$libros[] = array('id'=> $id, 'titulo' => $titulo, 'autor' => $autor, 'imagen' => $imagen);
+		$libros[] = array('id'=> $id, 'titulo' => $titulo, 'autor' => $autor, 'paginas' => $paginas, 'imagen' => $imagen);
 	}
 
 
