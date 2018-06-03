@@ -32,13 +32,23 @@
 	    <ion-input type="text" name = "autor" [(ngModel)] =  "autor"></ion-input>
 	  </ion-item>
 
+	  <ion-item>
+	    <ion-label stacked>Sinopsis</ion-label>
+	    <ion-textarea type="text" name = "sinopsis" [(ngModel)] =  "sinopsis"></ion-textarea>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label stacked>Páginas</ion-label>
+	    <ion-input type="number" name = "paginas" [(ngModel)] =  "paginas"></ion-input>
+	  </ion-item>
+
 	</ion-list>
 
 	<!--
 
 		Aquí añadimos el botón para registrar el libro
 	-->
-	<button ion-button block (click) = "anadirLibro()">Registrar libro</button>
+	<button ion-button block (click) = "anadirLibro(titulo, autor, sinopsis, paginas)">Registrar libro</button>
 
 
 </ion-content>

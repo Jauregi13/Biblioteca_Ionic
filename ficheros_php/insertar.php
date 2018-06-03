@@ -17,15 +17,18 @@ $json = json_decode($datos, true);
 
 $titulo = $json["titulo"];
 $autor = $json["autor"];
+$sinopsis = $json["sinopsis"];
+$paginas = $json["paginas"];
 
 // INSERTAR EL LIBRO EN LA BASE DE DATOS
 
-$sql = 'INSERT INTO libros (titulo, autor) VALUES ("'.$titulo.'","'.$autor.'")';
+if($titulo != null && $autor != null){
 
-mysqli_query($conexion, $sql);
+	$sql = 'INSERT INTO libros (titulo, autor, sinopsis, paginas) VALUES 
+	("'.$titulo.'","'.$autor.'", "'.$sinopsis.'","'.$paginas.'")';
+
+	mysqli_query($conexion, $sql);
+}
 
 
 
-
-
-?>

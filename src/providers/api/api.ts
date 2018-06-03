@@ -32,4 +32,19 @@ export class ApiProvider {
   	return this.http.post(eliminar, titulo);
   }
 
+  libroLeido(titulo){
+
+  	let leido = 'http://localhost/libroLeido.php';
+
+  	return this.http.post(leido,titulo);
+
+  }
+
+  listarLeido(leido){
+  	let listar = 'http://localhost/listar.php';
+
+  	return this.http.post(listar,leido);
+
+  }
+
 }

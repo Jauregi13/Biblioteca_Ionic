@@ -86,4 +86,39 @@ export class HomePage {
     prompt.present();
   }
 
+  leido(libro){
+
+  	let titulo = JSON.stringify({titulo : libro.titulo});
+
+  	this.http.libroLeido(titulo).subscribe((data) => {
+
+      this.confirmacionLeido(libro.titulo);
+
+  	},(error) => {
+  		console.log(error);
+  	})
+
+  }
+
+  listarLeido(leido){
+
+  	let libroLeido = JSON.stringify({ leido : leido});
+
+  	this.http.listarLeido(libroLeido).subscribe((data) => {
+  		this.libros = data;
+  	},(error) => {
+  		console.log(error);
+  	})
+
+  }
+
+  confirmacionLeido(titulo){
+    let alert = this.alert.create({
+      title : 'Libro leido!!',
+      subTitle : 'Enhorabuena!! Has terminado de leer el libro ' + titulo,
+      buttons : ['Aceptar']
+    });
+    alert.present();
+  }
+
 }

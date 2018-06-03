@@ -5,7 +5,8 @@
 </ion-header>
 
 <ion-content padding>
-
+<button ion-button small (click) = "listarLeido(0)">Libros no leidos</button>
+<button ion-button small (click) = "listarLeido(1)">Libros leidos</button>
 <ion-list>
   <ion-item-sliding *ngFor ="let libro of libros">
     <button ion-item (click)="descripcion(libro)">
@@ -16,10 +17,18 @@
       <p>{{libro.autor}}</p>
     </button>
     <ion-item-options side="right">
-      <button ion-button color="primary" (click)="eliminar(libro)">
-        <ion-checkbox [(ngModel)]="libro.leido"></ion-checkbox>
-        Leido
-      </button>
+      <div *ngIf = "libro.leido == true; else noleido">
+        <button ion-button color="secondary" disabled="true">
+          <ion-icon ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
+          Leido
+        </button>
+      </div>
+      <ng-template #noleido>
+        <button ion-button color="primary"  (click)="leido(libro)">
+          No Leido
+        </button>
+      </ng-template>
+      
       <button ion-button color="danger" (click)="eliminar(libro)">
         <ion-icon name="close-circle"></ion-icon>
         Eliminar

@@ -18,9 +18,10 @@
 	  <img src="../../assets/{{libro.imagen}}" onerror="this.src='../../assets/imgs/libro.png'">
 	  <ion-card-content>
 	    <ion-card-title>
-	      {{libro.titulo}}
+	      Sinopsis
 	      </ion-card-title>
 	    <p>
+	    	{{libro.sinopsis}}
 	    </p>
 	    <ion-row class="row" no-padding>
 	    	<ion-col class="row">
@@ -28,6 +29,14 @@
 	    	</ion-col>
 	    	<ion-col class="row">
 	    		<p>{{libro.paginas}} paginas</p>
+	    	</ion-col>
+	    </ion-row>
+	    <ion-row class="row" no-padding>
+	    	<ion-col class="row" *ngIf="libro.leido == true;">
+	    		<div class ="leido">
+          			<ion-icon ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
+         			Leido
+        		</div>
 	    	</ion-col>
 	    </ion-row>
 	  </ion-card-content>
