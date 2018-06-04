@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-05-2018 a las 21:26:06
+-- Tiempo de generación: 05-06-2018 a las 00:36:10
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -35,6 +35,7 @@ CREATE TABLE `libros` (
   `titulo` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `autor` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `paginas` int(11) NOT NULL,
+  `sinopsis` varchar(512) COLLATE utf8_unicode_ci NOT NULL,
   `leido` tinyint(1) NOT NULL,
   `imagen` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -43,14 +44,11 @@ CREATE TABLE `libros` (
 -- Volcado de datos para la tabla `libros`
 --
 
-INSERT INTO `libros` (`id`, `titulo`, `autor`, `paginas`, `leido`, `imagen`) VALUES
-(1, 'Piramide Roja', 'Rick Riordan', 516, 0, 'imgs/piramideRoja.png'),
-(2, 'Oscuros', 'Lauren Kate', 0, 0, '0'),
-(6, 'Harry Potter', 'J.K Rowling', 255, 0, NULL),
-(7, 'El heroe perdido', 'Rick Riordan', 0, 0, NULL),
-(8, 'Harry Potter 2', 'J.K Rowling', 0, 0, NULL),
-(10, 'La Templanza', 'Maria DueÃ±as', 0, 0, NULL),
-(14, 'test', 'test', 0, 0, NULL);
+INSERT INTO `libros` (`id`, `titulo`, `autor`, `paginas`, `sinopsis`, `leido`, `imagen`) VALUES
+(1, 'Piramide Roja', 'Rick Riordan', 516, '', 1, 'imgs/piramideRoja.png'),
+(6, 'Harry Potter 1', 'J.K Rowling', 255, '', 1, 'imgs/harryPotter1.png'),
+(7, 'El heroe perdido', 'Rick Riordan', 0, '', 1, 'imgs/elHeroePerdido.png'),
+(8, 'Harry Potter 2', 'J.K Rowling', 0, '', 0, 'imgs/harryPotter2.png');
 
 --
 -- Índices para tablas volcadas
@@ -71,7 +69,7 @@ ALTER TABLE `libros`
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
