@@ -9,10 +9,8 @@ import { InsertarPage } from '../pages/insertar/insertar';
 import { DescripcionPage } from '../pages/descripcion/descripcion';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { SqliteProvider } from '../providers/sqlite/sqlite';
-import { SQLite } from '@ionic-native/sqlite';
 import { HttpClientModule} from '@angular/common/http';
-import { ApiProvider } from '../providers/api/api';
+import { DatabaseProvider } from '../providers/database/database';
 
 @NgModule({
   declarations: [
@@ -26,7 +24,6 @@ import { ApiProvider } from '../providers/api/api';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    //HttpHeaders
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -40,9 +37,7 @@ import { ApiProvider } from '../providers/api/api';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    SqliteProvider,
-    SQLite,
-    ApiProvider
+    DatabaseProvider
   ]
 })
 export class AppModule {}

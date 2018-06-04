@@ -1,22 +1,30 @@
 <ion-header>
   <ion-navbar>
+    <!-- Icono que llamará al metodo ionViewDidLoad() para refrescar el listado de todos los libros-->
     <ion-title>Listado de Libros <ion-icon class="button ion-right derecha" md="md-refresh" (click)="ionViewDidLoad()"></ion-icon></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+<!-- Boton que llamará al metodo listarLeido() con el parametro 0 que mostrará el listado de libros no leidos -->
 <button ion-button small (click) = "listarLeido(0)">Libros no leidos</button>
+<!-- Boton que llamará al metodo listarLeido() con el parametro 1 que mostrará el listado de libros leidos -->
 <button ion-button small (click) = "listarLeido(1)">Libros leidos</button>
+<!-- Creamos una lista de items para mostrar el listado de libros -->
 <ion-list>
+  <!-- Declaramos una sentencia for para iterar el listado de libros -->
   <ion-item-sliding *ngFor ="let libro of libros">
     <button ion-item (click)="descripcion(libro)">
       <ion-avatar item-start>
+        <!-- Mostramos la imagen del libro, si no tiene se pondrá por defecto el libro que aparece en "onerror" -->
         <img src="../../assets/{{libro.imagen}}" onerror="this.src='../../assets/imgs/libro.png'">
       </ion-avatar>
+      <!-- Mostramos el titulo del libro con etiqueta h2 y debajo el autor con etiqueta p -->
       <h2>{{libro.titulo}}</h2>
       <p>{{libro.autor}}</p>
     </button>
     <ion-item-options side="right">
+      <!-- Si el valor de leido es true entonces estará como leido, en verde y no se podra pulsar mas-->
       <div *ngIf = "libro.leido == true; else noleido">
         <button ion-button color="secondary" disabled="true">
           <ion-icon ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
@@ -24,11 +32,12 @@
         </button>
       </div>
       <ng-template #noleido>
+        <!-- Boton para llamar al metodo leido que actualizara el libro a leido-->
         <button ion-button color="primary"  (click)="leido(libro)">
           No Leido
         </button>
       </ng-template>
-      
+      <!-- Boton para llamar al metodo eliminar para poder eliminar el libro-->
       <button ion-button color="danger" (click)="eliminar(libro)">
         <ion-icon name="close-circle"></ion-icon>
         Eliminar

@@ -15,14 +15,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DescripcionPage {
 
+	// PROPIEDAD PARA ALMACENAR EL LIBRO QUE VIENE DE LA PAGINA HOME
+
 	libro : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  	// ASIGNAMOS EL PARAMETRO QUE VIENE DE HOME A LIBRO
+  	// UTILIZAREMOS NAVPARAMS PARA RECOGER ESE PARAMETRO
   	this.libro = navParams.data;
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DescripcionPage');
-  }
+ 
 
 }
